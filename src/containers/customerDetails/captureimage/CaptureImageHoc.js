@@ -7,7 +7,6 @@ import { get } from "../../../Utils/apiFunctions";
 
 const CaptureImageHoc = (Com, componentType) => {
   function InnerHoc() {
-    console.log("22222");
     const formData = useSelector((state) => state.formData.formData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -29,7 +28,6 @@ const CaptureImageHoc = (Com, componentType) => {
 
     useEffect(() => {
       if (componentType === "editCaptureImage") {
-        console.log("location ", )
         if (!location?.state?.nextButtonClicked && !location?.state?.prevButtonClicked) {
           getEditData();
         }
@@ -41,12 +39,10 @@ const CaptureImageHoc = (Com, componentType) => {
       const getResponse = await get(
         `http://localhost:8081/getcustomerinfo?transactionId=${params.id}`
       );
-      //console.log("edit response === ", getResponse)
       if (getResponse) {
         setIsloader(false);
       }
       if (getResponse.status === 200 && !getResponse.error) {
-        //console.log("getResponse.data.customerPic ", getResponse?.data?.customerPic)
         setPicture(getResponse?.data?.customerPic);
         dispatch(saveCustomerInfo(getResponse?.data));
       } else {
@@ -87,7 +83,6 @@ const CaptureImageHoc = (Com, componentType) => {
         componentType === "editCaptureImage"
           ? `/CustomerDetails/EditCustomerInformation/${params.id}`
           : "/CustomerDetails";
-      console.log("goBackPath ", goBackPath);
       navigate(goBackPath, { state: { submited: true, prevButtonClicked:true } });
     };
 

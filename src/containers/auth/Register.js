@@ -36,9 +36,7 @@ const Register = () => {
   const closeToster = () => {
     setIsToster(false)
   }
-
-  console.log("isLoader ", isLoader)
- 
+  
   return (
       <Auth
         handleChange={handleChange}

@@ -16,6 +16,12 @@ const Sidebar = () => {
             <Link to="Report"><span className='me-3'><SlashSquareFill/></span>Reports</Link>
         </ListGroup.Item>
         <ListGroup.Item className='bg-none'>
+            <Link to="CompletedTransactions"><span className='me-3'><PlusSquareFill/></span>Completed Transactions</Link>
+        </ListGroup.Item>
+        <ListGroup.Item className='bg-none'>
+            <Link to="PendingTransactions"><span className='me-3'><PlusSquareFill/></span>Pending Transactions</Link>
+        </ListGroup.Item>
+        <ListGroup.Item className='bg-none'>
             <Link to="Register"><span className='me-3'><PlusSquareFill/></span>Add User</Link>
         </ListGroup.Item>
     </ListGroup>

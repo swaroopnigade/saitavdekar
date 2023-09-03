@@ -10,6 +10,7 @@ import { saveCustomerInfo } from "../Reducers/customerInfoSlice";
 import { get } from "../../../Utils/apiFunctions";
 import PageLoder from "../../../components/PageLoder";
 import Toaster from "../../../components/Toaster";
+import { parseISO, format } from "date-fns";
 
 const EditCustomerInformation = (props) => {
   const params = useParams();
@@ -22,6 +23,7 @@ const EditCustomerInformation = (props) => {
     formData,
     handleFormValidaton,
     formErrorData,
+    renderWeightBox
   } = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,13 +44,14 @@ const EditCustomerInformation = (props) => {
     const getResponse = await get(
       `http://localhost:8081/getcustomerinfo?transactionId=${id}`
     );
-    //console.log("edit response === ", getResponse)
     if (getResponse) {
       setIsloader(false);
     }
     if (getResponse.status === 200 && !getResponse.error) {
       const tempData = {...getResponse.data}
       tempData.amountPaid = tempData.totalAmountPaid;
+      tempData.dateOfBirth = format(parseISO(tempData.dateOfBirth), "dd-MM-yyyy");
+      tempData.transactionDate = format(parseISO(tempData.transactionDate), "dd-MM-yyyy")
       setEditData(tempData);
       dispatch(saveCustomerInfo(tempData));
     } else {
@@ -76,8 +79,6 @@ const EditCustomerInformation = (props) => {
     setIsToster(false);
   };
 
-  console.log("editError ", editError);
-
   return (
     <>
       <Row className="justify-content-md-center position-relative customer-info-box">
@@ -92,6 +93,7 @@ const EditCustomerInformation = (props) => {
             customerInformationForm={editCustomerInformationForm}
             handleNext={handleNext}
             formErrorData={formErrorData}
+            renderWeightBox={renderWeightBox}
           />
         </Col>
         {isLoader ? <PageLoder /> : null}

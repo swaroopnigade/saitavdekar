@@ -23,8 +23,6 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    //const getFormData = { ...formData };
-    console.log("validateLoginForm ", validateLoginForm());
     if (!validateLoginForm()) {
       return;
     } else {

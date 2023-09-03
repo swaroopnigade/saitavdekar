@@ -24,7 +24,6 @@ const ReportsHoc = (Comp, compName) => {
     const [isCustomReport, setIsCustomReport] = useState(false);
     const [customDate, setCustomDate] = useState({});
     const [isPending, startTransition] = useTransition();
-    const [selected, setSelected] = useState([]);
     const [nameSearchData, setNameSearchData] = useState([]);
 
     const filteredItems = reportData?.filter(
@@ -84,8 +83,6 @@ const ReportsHoc = (Comp, compName) => {
       };
 
       const handleNameFilter = (nameText) => {
-        console.log("in name filter");
-        //setFilterText(nameText)
         startTransition(() => {
           nameFilter(nameText);
         });
@@ -293,15 +290,23 @@ const ReportsHoc = (Comp, compName) => {
       },
       {
         name: "Date of Birth",
-        selector: (row) => format(parseISO(row.dateOfBirth), "dd/MM/yyyy"),
+        selector: (row) => format(parseISO(row.dateOfBirth), "dd-MM-yyyy"),
       },
       {
         name: "Address",
         selector: (row) => row.address,
       },
       {
+        name: "Metal Type",
+        selector: (row) => row.metalType,
+      },
+      {
         name: "Product",
         selector: (row) => row.product,
+      },
+      {
+        name: "Product Weight",
+        selector: (row) => row.productWeight + " " + row.weightUnit ,
       },
       {
         name: "Amount",
@@ -351,7 +356,7 @@ const ReportsHoc = (Comp, compName) => {
                 "dd/MM/yyy'-'HH:mm:ss"
               )}
             >
-              {format(parseISO(row.transactionDate), "dd/MM/yyy'-'HH:mm:ss")}
+              {format(parseISO(row.transactionDate), "dd-MM-yyyy'-'HH:mm:ss")}
             </span>
           );
         },

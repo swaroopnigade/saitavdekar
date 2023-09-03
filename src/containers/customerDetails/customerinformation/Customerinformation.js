@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import customerInformationForm from "./customerinformation.json";
@@ -18,6 +18,7 @@ const Customerinformation = (props) => {
     formData,
     handleFormValidaton,
     formErrorData,
+    renderWeightBox
   } = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const Customerinformation = (props) => {
           customerInformationForm={customerInformationForm}
           handleNext={handleNext}
           formErrorData={formErrorData}
+          renderWeightBox={renderWeightBox}
         />
       </Col>
     </Row>

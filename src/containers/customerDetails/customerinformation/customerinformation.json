@@ -60,6 +60,20 @@
         "size":6
     },
     {
+        "className":"mb-3",
+        "id":"metalType",
+        "label":"Metal Type",
+        "placeholder":"",
+        "inputType":"select",
+        "type":null,
+        "name":"metalType",
+        "documemtList":[
+            {"label":"Gold", "value":"Gold"},
+            {"label":"Silver", "value":"Silver"}
+        ],
+        "size":6
+    },
+    {
         "className":"mb-3 h-10",
         "id":"product",
         "label":"Product Name",
@@ -67,6 +81,16 @@
         "inputType":"textbox",
         "type":"text",
         "name":"product",
+        "size":6
+    },
+    {
+        "className":"mb-3 h-10",
+        "id":"productWeight",
+        "label":"Product Weight",
+        "placeholder":"",
+        "inputType":"weightBox",
+        "type":"number",
+        "name":"productWeight",
         "size":6
     },
     {

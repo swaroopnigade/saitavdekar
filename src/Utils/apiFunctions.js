@@ -32,17 +32,13 @@ export const put = async (url, data) => {
         const headers = { 'Authorization': `Bearer ${token}` }; 
         const response = await axios.put(url, data, {headers});
         const responseData = response.data;
-        console.log("in put responseData === ", responseData)
         return responseData;
     }catch(err){
-        console.log("in put catch === ", err)
         if(err.response){
             const data = {message:err.response.data.message || "Interval server error", data:null, status:500, error:true};
-            console.log("in put catch 111=== ", data)
             return data;
         }else{
             const data = {message:err.response ? err.response.data : err.message, data:null, status:500, error:true};
-            console.log("in put catch 2222=== ", data)
             return data;
         }
         

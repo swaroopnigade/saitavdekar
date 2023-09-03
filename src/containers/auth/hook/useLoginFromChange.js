@@ -21,12 +21,10 @@ const useLoginFormChange = () => {
     const getFormErrorData = {...formErrorData};
     if(getFormData.userName === ""){
         getFormErrorData.userName = "Please Enter Username";
-        console.log("getFormErrorData ", getFormErrorData)
         setFormErrorData(getFormErrorData);
         return false
     }else if(getFormData.password === ""){
         getFormErrorData.password = "Please Enter Password";
-        console.log("getFormErrorData ", getFormErrorData)
         setFormErrorData(getFormErrorData);
         return false
     }else if(!passwordCheck.test(getFormData.password)){

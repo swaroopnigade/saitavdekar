@@ -9,7 +9,6 @@ import { saveCustomerInfo } from "../Reducers/customerInfoSlice";
 const CustomerinformationHoc = (Com) => {
   function InnerHoc() {
     const location = useLocation();
-    console.log("location ", location)
     useEffect(() => {
       if(!location.state || !location.state.submited){
         dispatch(saveCustomerInfo(null));
@@ -20,7 +19,7 @@ const CustomerinformationHoc = (Com) => {
     const dispatch = useDispatch();
     const { formData, handleInputChange, handleFormValidaton, formErrorData } =
       useFormChanges(editFormData);
-    const { renderInputBox, renderTextArea, renderSelect, renderFileUpload } =
+    const { renderInputBox, renderTextArea, renderSelect, renderFileUpload, renderWeightBox } =
       useFormRenderer({ formData, errorData: formErrorData });
 
     return (
@@ -33,40 +32,8 @@ const CustomerinformationHoc = (Com) => {
         formData={formData}
         handleFormValidaton={handleFormValidaton}
         formErrorData={formErrorData}
+        renderWeightBox={renderWeightBox}
       />
-      //     <Row className="justify-content-md-center">
-      //     <Col xs lg="9" className='form-box mt-3'>
-      //       <h3 className='mt-3'>Customer Information</h3>
-      //     <Form className="mt-4" id="customerInformationForm">
-      //       <Row>
-      //         {formJson.map((item, index) => {
-      //           switch (item.inputType) {
-      //             case "textbox":
-      //               return renderInputBox(item, index, handleInputChange);
-      //             case "textarea":
-      //               return renderTextArea(item, index, handleInputChange);
-      //             case "select":
-      //               return renderSelect(item, index, handleInputChange);
-      //             case "fileupload":
-      //               return renderFileUpload(item, index, handleInputChange);
-      //             default:
-      //               return;
-      //           }
-      //         })}
-      //       </Row>
-      //       <Row className="text-center justify-content-md-center">
-      //         <ButtonComponent
-      //           onClick={handleNext}
-      //           className="w-25"
-      //           id="customerInfoNextBtn"
-      //           variant="primary mb-3"
-      //           buttonName="Next"
-      //         />
-      //       </Row>
-      //     </Form>
-
-      //     </Col>
-      // </Row>
     );
   }
   return InnerHoc;

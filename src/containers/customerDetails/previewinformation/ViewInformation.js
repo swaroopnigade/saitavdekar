@@ -23,6 +23,7 @@ const ViewInformation = (props) => {
       isToster={isToster}
       apiResponseData={apiResponseData}
       showButtons={showButtons}
+      viewMode={true}
     />
   )
 }

@@ -40,7 +40,6 @@ const ExportToExcelComp = (props) => {
     const fileType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
     const fileExtension = '.xlsx';
     const ws = XLSX.utils.json_to_sheet(data);
-    console.log("ws ", ws)
     const wb = { Sheets:{'data':ws}, SheetNames:['data']};
     const excelBuffer = XLSX.write(wb, {bookType:'xlsx', type:"array"});
     const datas = new Blob([excelBuffer], {type:fileType});

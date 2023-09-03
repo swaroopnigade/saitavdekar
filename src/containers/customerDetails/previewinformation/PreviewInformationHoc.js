@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { post, get, put } from "../../../Utils/apiFunctions";
 import { saveCustomerInfo } from "../Reducers/customerInfoSlice";
+import { parseISO, format } from "date-fns";
 
 const PreviewInformationHoc = (Com, compType) => {
   function InnerHoc() {
@@ -11,7 +12,6 @@ const PreviewInformationHoc = (Com, compType) => {
     const location = useLocation();
     const [isLoader, setIsloader] = useState(false);
     const [isToster, setIsToster] = useState(false);
-    const [editError, setEditError] = useState(null);
     const [isPageLoder, setIsPageLoder] = useState(false);
     const [apiResponseData, setApiResponseData] = useState(null);
     const [showButtons, setShowButtons] = useState(false);
@@ -36,12 +36,12 @@ const PreviewInformationHoc = (Com, compType) => {
       const getResponse = await get(
         `http://localhost:8081/getcustomerinfo?transactionId=${params.id}`
       );
-      //console.log("edit response === ", getResponse)
       if (getResponse) {
         setIsPageLoder(false);
       }
       if (getResponse.status === 200 && !getResponse.error) {
-        //console.log("getResponse.data.customerPic ", getResponse?.data?.customerPic)
+        getResponse.data.dateOfBirth = format(parseISO(getResponse.data.dateOfBirth), "dd-MM-yyyy");
+        getResponse.data.transactionDate = format(parseISO(getResponse.data.transactionDate), "dd-MM-yyyy")
         dispatch(saveCustomerInfo(getResponse?.data));
       } else {
         if (getResponse.status === 403) {

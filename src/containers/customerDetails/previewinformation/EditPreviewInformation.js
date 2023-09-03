@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PreviewInformationHoc from "./PreviewInformationHoc";
 import PreviewInformationForm from "./PreviewInformationForm";
 
@@ -25,6 +25,7 @@ const EditPreviewInformation = (props) => {
       apiResponseData={apiResponseData}
       isPageLoder={isPageLoder}
       showButtons={showButtons}
+      viewMode={true}
     />
   );
 };

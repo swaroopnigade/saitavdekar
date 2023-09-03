@@ -12,6 +12,7 @@ const CustomerInformationFormPage = (props) => {
     renderFileUpload,
     customerInformationForm,
     handleNext,
+    renderWeightBox
   } = props;
 
   return (
@@ -27,6 +28,8 @@ const CustomerInformationFormPage = (props) => {
               return renderSelect(item, index, handleInputChange);
             case "fileupload":
               return renderFileUpload(item, index, handleInputChange);
+            case "weightBox":
+              return renderWeightBox(item, index, handleInputChange);
             default:
               return;
           }

@@ -17,9 +17,10 @@ const PreviewInformationForm = (props) => {
     isToster,
     apiResponseData,
     isPageLoder,
-    showButtons
+    showButtons,
+    viewMode
   } = props;
-  console.log("xxxxx ===== ", showButtons)
+  
   return (
     <>
       <Row className="justify-content-md-center position-relative customer-info-box">
@@ -53,6 +54,18 @@ const PreviewInformationForm = (props) => {
                     <td>{formData?.address}</td>
                   </tr>
                   <tr>
+                    <td>Metal Type:</td>
+                    <td>{formData?.metalType}</td>
+                  </tr>
+                  <tr>
+                    <td>Product Name:</td>
+                    <td>{formData?.product}</td>
+                  </tr>
+                  <tr>
+                    <td>Product Weight:</td>
+                    <td>{formData?.productWeight} {formData?.weightUnit}</td>
+                  </tr>
+                  <tr>
                     <td>Amount:</td>
                     <td>{formData?.amount}</td>
                   </tr>
@@ -63,6 +76,30 @@ const PreviewInformationForm = (props) => {
                   <tr>
                     <td>Pending Amount:</td>
                     <td>{formData?.amountPending}</td>
+                  </tr>
+                  <tr>
+                    <td>Id Card :</td>
+                    <td>{formData?.idCardName}</td>
+                  </tr>
+                  <tr>
+                    <td>Id Card Number:</td>
+                    <td>{formData?.idCardNumber}</td>
+                  </tr>
+                  {viewMode ? <tr>
+                    <td>Transaction Date:</td>
+                    <td>{formData?.transactionDate}</td>
+                  </tr> : null}
+                  <tr>
+                    <td>Reference By:</td>
+                    <td>{formData?.referenceBy}</td>
+                  </tr>
+                  <tr>
+                    <td>Reference Contact No.:</td>
+                    <td>{formData?.referenceByNo}</td>
+                  </tr>
+                  <tr>
+                    <td>Comment:</td>
+                    <td>{formData?.comment}</td>
                   </tr>
                 </tbody>
               </Table>

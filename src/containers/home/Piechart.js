@@ -22,7 +22,6 @@ const Piechart = () => {
       setIsloader(false);
     }
     if (getResponse.status === 200 && !getResponse.error) {
-      console.log("getResponse.data.customerPic ", getResponse);
       setData(getResponse.data);
     } else {
       if (getResponse.status === 403) {

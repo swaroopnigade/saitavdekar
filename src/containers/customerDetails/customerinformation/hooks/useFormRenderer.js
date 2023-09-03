@@ -3,6 +3,7 @@ import Input from '../../../../components/Input';
 import TextArea from '../../../../components/TextArea';
 import Select from '../../../../components/Select';
 import FileUpload from '../../../../components/FileUpload';
+import WeightBox from '../../../../components/WeightBox';
 
 const useFormRenderer = (props) => {
     const {formData, errorData} = {...props};
@@ -67,6 +68,7 @@ const useFormRenderer = (props) => {
             </Col>
         )
     }
+
     const renderFileUpload = (item, index, handleInputChange) => {
         const {className, id, label, placeholder, inputType, type, name} = {...item}
         return(
@@ -86,11 +88,34 @@ const useFormRenderer = (props) => {
         )
     }
 
+    const renderWeightBox = (item, index, handleInputChange) => {
+        const {className, id, label, placeholder, inputType, type, name, disabled, size} = {...item}
+        return(
+            <Col sm={size} key={`${index}`}>
+                <WeightBox 
+                    className={className} 
+                    id={id} 
+                    label={label} 
+                    placeholder={placeholder} 
+                    inputType={inputType}
+                    type={type}
+                    onChange={handleInputChange}
+                    name={name}
+                    formErrorData={errorData}
+                    disabled={disabled}
+                    value={formData[name]}
+                    unitValue={formData["weightUnit"]}
+                />
+            </Col>
+        )
+    }
+
     return{
         renderInputBox,
         renderTextArea,
         renderSelect,
-        renderFileUpload
+        renderFileUpload,
+        renderWeightBox
     }
 }
 

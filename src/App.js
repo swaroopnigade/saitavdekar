@@ -29,7 +29,6 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const authorization = async () => {
-    console.log("location ", location)
     if (location.pathname !== "/Register") {
       const getResponse = await get("http://localhost:8081/authorization");
       if (getResponse.status === 403) {
