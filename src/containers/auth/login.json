@@ -1,0 +1,20 @@
+[
+    {
+        "className":"mb-3",
+        "id":"userName",
+        "label":"User Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"userName"
+    },
+    {
+        "className":"mb-3",
+        "id":"password",
+        "label":"Password",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"password",
+        "name":"password"
+    }
+]

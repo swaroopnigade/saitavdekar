@@ -1,0 +1,47 @@
+[
+    {
+        "className":"mb-3",
+        "id":"firstName",
+        "label":"First Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"firstName"
+    },
+    {
+        "className":"mb-3",
+        "id":"lastName",
+        "label":"Last Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"lastName"
+    },
+    {
+        "className":"mb-3",
+        "id":"userName",
+        "label":"User Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"userName"
+    },
+    {
+        "className":"mb-3",
+        "id":"password",
+        "label":"Password",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"password"
+    },
+    {
+        "className":"mb-3",
+        "id":"confirmPassword",
+        "label":"Confirm Password",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"confirmPassword"
+    }
+]

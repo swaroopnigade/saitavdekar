@@ -1,0 +1,159 @@
+[
+    {
+        "className":"mb-3",
+        "id":"firstName",
+        "label":"First Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"firstName",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"lastName",
+        "label":"Last Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"lastName",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"email",
+        "label":"Email Id",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"email",
+        "name":"email",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"mobileNo",
+        "label":"Mobile Number",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"number",
+        "name":"mobileNo",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"dateOfBirth",
+        "label":"Date of Birth",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"date",
+        "name":"dateOfBirth",
+        "size":6
+    },
+    {
+        "className":"mb-3 h-10",
+        "id":"address",
+        "label":"Address",
+        "placeholder":"",
+        "inputType":"textarea",
+        "type":null,
+        "name":"address",
+        "size":6
+    },
+    {
+        "className":"mb-3 h-10",
+        "id":"product",
+        "label":"Product Name",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"product",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"amount",
+        "label":"Amount",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"number",
+        "name":"amount",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"amountPaid",
+        "label":"Amount Paid",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"number",
+        "name":"amountPaid",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"amountPending",
+        "label":"Amount Pending",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"number",
+        "name":"amountPending",
+        "disabled":true,
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"idCardType",
+        "label":"Choose Id card type",
+        "placeholder":"",
+        "inputType":"select",
+        "type":null,
+        "name":"idCardType",
+        "documemtList":[
+            {"label":"Voter ID", "value":"1"},
+            {"label":"Aadhar Card", "value":"2"},
+            {"label":"Driving licence", "value":"3"},
+            {"label":"Passport", "value":"4"}
+        ],
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"idCardNumber",
+        "label":"Id Card Number",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"idCardNumber",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"referenceBy",
+        "label":"Reference By",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"referenceBy",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"referenceByNo",
+        "label":"Reference Contact No.",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"number",
+        "name":"referenceByNo",
+        "size":6
+    },
+    {
+        "className":"mb-3",
+        "id":"comment",
+        "label":"Comment",
+        "placeholder":"",
+        "inputType":"textbox",
+        "type":"text",
+        "name":"comment",
+        "size":12
+    } 
+]
