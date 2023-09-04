@@ -6,6 +6,7 @@ import Image from "react-bootstrap/Image";
 import ButtonComponent from "../../../components/Button";
 import Toaster from "../../../components/Toaster";
 import PageLoder from "../../../components/PageLoder";
+import {CurrencyRupee} from "react-bootstrap-icons";
 
 const PreviewInformationForm = (props) => {
   const {
@@ -67,15 +68,15 @@ const PreviewInformationForm = (props) => {
                   </tr>
                   <tr>
                     <td>Amount:</td>
-                    <td>{formData?.amount}</td>
+                    <td><CurrencyRupee/>{formData?.amount}</td>
                   </tr>
                   <tr>
                     <td>Amount Paid:</td>
-                    <td>{formData?.amountPaid}</td>
+                    <td><CurrencyRupee/>{formData?.amountPaid}</td>
                   </tr>
                   <tr>
                     <td>Pending Amount:</td>
-                    <td>{formData?.amountPending}</td>
+                    <td><CurrencyRupee/>{formData?.amountPending}</td>
                   </tr>
                   <tr>
                     <td>Id Card :</td>

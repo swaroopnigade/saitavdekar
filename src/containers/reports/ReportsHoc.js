@@ -25,6 +25,7 @@ const ReportsHoc = (Comp, compName) => {
     const [customDate, setCustomDate] = useState({});
     const [isPending, startTransition] = useTransition();
     const [nameSearchData, setNameSearchData] = useState([]);
+    const [excelDownloadUrl, setExcelDownloadUrl] = useState("")
 
     const filteredItems = reportData?.filter(
       (item) =>
@@ -35,6 +36,7 @@ const ReportsHoc = (Comp, compName) => {
     const getDailyReport = (page, pageLimit) => {
       setReportType("daily");
       setIsCustomReport(false);
+      setExcelDownloadUrl(`http://localhost:8081/dailyReport?filter=${compName}`);
       //setLimit(10)
       getCustomRepotsData(
         `http://localhost:8081/dailyReport?page=${page}&&limit=${pageLimit}&&filter=${compName}`
@@ -44,6 +46,7 @@ const ReportsHoc = (Comp, compName) => {
     const getWeeklyReport = (page, pageLimit) => {
       setReportType("weekly");
       setIsCustomReport(false);
+      setExcelDownloadUrl(`http://localhost:8081/weeklyReport?filter=${compName}`);
       getCustomRepotsData(
         `http://localhost:8081/weeklyReport?page=${page}&&limit=${pageLimit}&&filter=${compName}`
       );
@@ -52,6 +55,7 @@ const ReportsHoc = (Comp, compName) => {
     const getMonthlyReport = (page, pageLimit) => {
       setReportType("monthly");
       setIsCustomReport(false);
+      setExcelDownloadUrl(`http://localhost:8081/monthlyReport?filter=${compName}`);
       getCustomRepotsData(
         `http://localhost:8081/monthlyReport?page=${page}&&limit=${pageLimit}&&filter=${compName}`
       );
@@ -69,6 +73,7 @@ const ReportsHoc = (Comp, compName) => {
 
     const getCustomFilterData = (page, pageLimit) => {
       setReportType("custom");
+      setExcelDownloadUrl(`http://localhost:8081/customReport?filter=${compName}`);
       getCustomRepotsData(
         `http://localhost:8081/customReport?fromDate=${customDate.fromDate}&&toDate=${customDate.toDate}&&page=${page}&&limit=${pageLimit}&&filter=${compName}`
       );
@@ -160,11 +165,11 @@ const ReportsHoc = (Comp, compName) => {
               ) : null}
             </div>
           </div>
-          <ExportToExcelComp reportType={reportType}/>
+          <ExportToExcelComp reportType={reportType} compName={compName} excelDownloadUrl={excelDownloadUrl}/>
           <FilterComponent handleOptionClick={handleOptionClick} isLoading={isPending} handleSearch={handleNameFilter} options={nameSearchData} labelKey="name" />
         </>
       );
-    }, [filterText, resetPaginationToggle, isCustomReport, customDate, nameSearchData]);
+    }, [filterText, resetPaginationToggle, isCustomReport, customDate, nameSearchData, reportType, excelDownloadUrl]);
 
     const dataFetcher = (name) => {
       getNameSearchData(
@@ -230,6 +235,7 @@ const ReportsHoc = (Comp, compName) => {
       let getResponse = null;
 
       if(compName === "Report"){
+        setExcelDownloadUrl(`http://localhost:8081/report`);
         getResponse = await get(
           `http://localhost:8081/report?page=${pageNo}&&limit=${pageLimit}`
         )
@@ -238,10 +244,12 @@ const ReportsHoc = (Comp, compName) => {
           `http://localhost:8081/transactionHistory?transactionId=${params.id}&&page=${pageNo}&&limit=${limit}`
         );
       }else if( compName === "Pending"){
+        setExcelDownloadUrl(`http://localhost:8081/pendingTransactions`);
         getResponse = await get(
           `http://localhost:8081/pendingTransactions?page=${pageNo}&&limit=${pageLimit}`
         )
       }else if( compName === "Completed"){
+        setExcelDownloadUrl(`http://localhost:8081/completedTransactions`);
         getResponse = await get(
           `http://localhost:8081/completedTransactions?page=${pageNo}&&limit=${pageLimit}`
         )

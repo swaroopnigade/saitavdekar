@@ -47,8 +47,9 @@ const useFormChanges = (editFormData) => {
         getFormData[event.target.name] = event.target.value;
         if (event.target.name === "amountPaid") {
             if (location.pathname.includes("EditCustomerInformation")) {
-                let calculate = parseInt(event.target.value) - parseInt(getFormData.totalAmountPaid);
-                getFormData.amountPending = calculate;
+                const val = isNaN(parseInt(event.target.value)) ? 0 : parseInt(event.target.value)
+                const calculate = val  - parseInt(editFormData.amountPending);
+                getFormData.amountPending = Math.abs( calculate );
             } else {
                 if (getFormData.amount !== "") {
                     let calculate = getFormData.amount - event.target.value;

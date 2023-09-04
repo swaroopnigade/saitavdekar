@@ -6,16 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { get } from "../../Utils/apiFunctions";
 
 const ExportToExcelComp = (props) => {
-  const { reportType } = props;
+  const { reportType, compName, excelDownloadUrl } = props;
   const navigate = useNavigate();
   const [reportError, setReportError] = useState(null);
   const [isLoader, setIsloader] = useState(false);
   const [isToster, setIsToster] = useState(false);
   
   const handleDownloadExcel = () => {
-    if (reportType === "default") {
-      getCustomRepotsData(`http://localhost:8081/report`);
-    }
+    getCustomRepotsData(excelDownloadUrl);
   };
 
   const getCustomRepotsData = async (url) => {
