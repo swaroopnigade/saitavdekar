@@ -101,11 +101,7 @@ const useFormChanges = (editFormData) => {
             getFormErrorData.lastName = "Please Enter Valid Last Name"
             setFormErrorData(getFormErrorData);
             return false;
-        } else if (formData.email === "") {
-            getFormErrorData.email = "Please Enter Email Id"
-            setFormErrorData(getFormErrorData);
-            return false;
-        } else if (!emailCheck.test(formData.email)) {
+        } else if (formData.email !== "" && !emailCheck.test(formData.email)) {
             getFormErrorData.email = "Please Enter Valid Email Id"
             setFormErrorData(getFormErrorData);
             return false;
