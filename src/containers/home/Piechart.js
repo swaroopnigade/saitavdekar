@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Chart } from "react-google-charts";
 import { get } from "../../Utils/apiFunctions";
 import { useNavigate } from "react-router-dom";
 import Toaster from "../../components/Toaster";
 import BoxLoader from "../../components/BoxLoader";
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Piechart = () => {
   const navigate = useNavigate();
   const [isLoader, setIsloader] = useState(false);
   const [isToster, setIsToster] = useState(false);
   const [errorData, setErrorData] = useState(null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   useEffect(() => {
     getPieChardData();
   }, []);
@@ -22,6 +26,7 @@ const Piechart = () => {
       setIsloader(false);
     }
     if (getResponse.status === 200 && !getResponse.error) {
+      console.log("when api called ", getResponse.data)
       setData(getResponse.data);
     } else {
       if (getResponse.status === 403) {
@@ -33,29 +38,14 @@ const Piechart = () => {
     }
   };
 
-  const options = {
-    pieSliceText: "label",
-    pieStartAngle: 100,
-    legend: {
-      position: "right",
-      textStyle: { color: "#0d6efd", fontSize: 16 },
-      alignment: "top",
-    },
-    colors: ['#dc3545', '#198754']
-  };
-
   const closeToster = () => {
     setIsToster(false);
   };
+
+  console.log("data ======== ", data)
   return (
     <>
-      <Chart
-        chartType="PieChart"
-        data={data}
-        options={options}
-        width={"100%"}
-        height={"350px"}
-      />
+      {data ? <Pie data={data}/> : null}
       {isLoader ? <BoxLoader /> : null}
       <Toaster
         apiResponseData={errorData}

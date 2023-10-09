@@ -187,3 +187,15 @@
     text-decoration: none;
 }
 
+.piechart{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piechart .piechart-wrp{
+    width: 350px;
+    text-align: center;
+}
+

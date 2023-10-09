@@ -73,7 +73,7 @@ const ReportsHoc = (Comp, compName) => {
 
     const getCustomFilterData = (page, pageLimit) => {
       setReportType("custom");
-      setExcelDownloadUrl(`http://localhost:8081/customReport?filter=${compName}`);
+      setExcelDownloadUrl(`http://localhost:8081/customReport?fromDate=${customDate.fromDate}&&toDate=${customDate.toDate}&&filter=${compName}`);
       getCustomRepotsData(
         `http://localhost:8081/customReport?fromDate=${customDate.fromDate}&&toDate=${customDate.toDate}&&page=${page}&&limit=${pageLimit}&&filter=${compName}`
       );
@@ -338,7 +338,7 @@ const ReportsHoc = (Comp, compName) => {
       },
       {
         name: "Id Card",
-        selector: (row) => row.idCardType,
+        selector: (row) => row.idCardName,
       },
       {
         name: "Id Card No.",

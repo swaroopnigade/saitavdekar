@@ -1,7 +1,7 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
-import {HouseDoorFill,SlashSquareFill, PersonCircle, PlusSquareFill} from "react-bootstrap-icons";
+import {HouseDoorFill,SlashSquareFill, PersonCircle, PlusSquareFill, CheckSquare, XSquareFill} from "react-bootstrap-icons";
 
 const Sidebar = () => {
   return (
@@ -16,10 +16,10 @@ const Sidebar = () => {
             <Link to="Report"><span className='me-3'><SlashSquareFill/></span>Reports</Link>
         </ListGroup.Item>
         <ListGroup.Item className='bg-none'>
-            <Link to="CompletedTransactions"><span className='me-3'><PlusSquareFill/></span>Completed Transactions</Link>
+            <Link to="CompletedTransactions"><span className='me-3'><CheckSquare/></span>Completed Transactions</Link>
         </ListGroup.Item>
         <ListGroup.Item className='bg-none'>
-            <Link to="PendingTransactions"><span className='me-3'><PlusSquareFill/></span>Pending Transactions</Link>
+            <Link to="PendingTransactions"><span className='me-3'><XSquareFill/></span>Pending Transactions</Link>
         </ListGroup.Item>
         <ListGroup.Item className='bg-none'>
             <Link to="Register"><span className='me-3'><PlusSquareFill/></span>Add User</Link>

@@ -82,8 +82,9 @@ const Home = () => {
         <Col xs={6} md={6} className="position-relative">
           <Barchart />
         </Col>
-        <Col xs={6} md={6} className="position-relative">
-          <Piechart />
+        <Col xs={6} md={6} className="position-relative piechart">
+          <div className="piechart-wrp"><Piechart /></div>
+          
         </Col>
       </Row>
     </Container>
